@@ -34,6 +34,9 @@ jobs:
           image: ${{ env.IMAGE_NAME }}
           tags: latest ${{ github.sha }}
           oci: true
+          context: .
+          containerfiles: |
+            ./Containerfile
 
       # Push the image to GHCR (Image Registry)
       - name: Push To GHCR
