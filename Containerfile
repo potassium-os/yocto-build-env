@@ -52,7 +52,10 @@ RUN set -exu \
     podman \
     buildah \
     skopeo \
-    qemu-user-static
+    qemu-user-static \
+    ifupdown \
+    iproute2
+
 
 # setup builder user
 RUN set -exu \
