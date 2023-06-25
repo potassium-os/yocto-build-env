@@ -48,19 +48,11 @@ RUN set -exu \
     zstd \
     python3 \
     python3-distutils \
-    util-linux
-
-# install podman and friends
-RUN set -exu \
-    && mkdir -p /etc/apt/keyrings \
-    && curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_Testing/Release.key \
-      | gpg --dearmor \
-      | tee /etc/apt/keyrings/devel_kubic_libcontainers_stable.gpg > /dev/null \
-    && echo \
-      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/devel_kubic_libcontainers_stable.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_Testing/ /" \
-      | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list > /dev/null \
-    && apt-get -yq update \
-    && apt-get -yq install podman buildah skopeo qemu-user-static
+    util-linux \
+    podman \
+    buildah \
+    skopeo \
+    qemu-user-static
 
 # setup builder user
 RUN set -exu \
