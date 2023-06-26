@@ -62,10 +62,6 @@ RUN set -exu \
   && usermod -a -G sudo builder \
   && chown -R 1000:1000 /home/builder \
   && echo 'builder ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
-  && echo root:10000:5000 > /etc/subuid \
-  && echo root:10000:5000 > /etc/subgid \
-  && echo builder:20000:5000 > /etc/subuid \
-  && echo builder:20000:5000 > /etc/subgid \
   && mkdir -p /opt/workdir
 
 USER builder
