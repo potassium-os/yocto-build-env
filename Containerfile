@@ -1,4 +1,4 @@
-FROM docker.io/debian:bookworm-slim
+FROM docker.io/debian:bullseye-slim
 
 RUN set -exu \
   && apt-get -yq update \
@@ -49,9 +49,6 @@ RUN set -exu \
     python3 \
     python3-distutils \
     util-linux \
-    podman \
-    buildah \
-    skopeo \
     qemu-user-static \
     ifupdown \
     iproute2
