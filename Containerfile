@@ -51,7 +51,8 @@ RUN set -exu \
     util-linux \
     qemu-user-static \
     ifupdown \
-    iproute2
+    iproute2 \
+    screen
 
 
 # setup builder user
