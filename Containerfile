@@ -52,7 +52,8 @@ RUN set -exu \
     qemu-user-static \
     ifupdown \
     iproute2 \
-    screen
+    screen \
+    u-boot-tools
 
 
 # setup builder user
