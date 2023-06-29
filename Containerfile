@@ -53,7 +53,10 @@ RUN set -exu \
     ifupdown \
     iproute2 \
     screen \
-    u-boot-tools
+    u-boot-tools \
+    libncurses-dev \
+    libssl-dev \
+    libelf-dev
 
 
 # setup builder user
