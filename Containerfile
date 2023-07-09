@@ -72,12 +72,14 @@ RUN set -exu \
   && echo 'builder ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
   && mkdir -p /opt/workdir
 
-
-ADD https://raw.githubusercontent.com/containers/libpod/master/contrib/podmanimage/stable/containers.conf /etc/containers/containers.conf
-ADD https://raw.githubusercontent.com/containers/libpod/master/contrib/podmanimage/stable/podman-containers.conf /home/podman/.config/containers/containers.conf
 RUN set -exu \
-  && chmod 644 /etc/containers/containers.conf \
-  && sed -i -e 's|^#mount_program|mount_program|g' -e '/additionalimage.*/a "/var/lib/shared",' -e 's|^mountopt[[:space:]]*=.*$|mountopt = "nodev,fsync=0"|g' /etc/containers/storage.conf
+  && mkdir -p /home/builder/.config/containers
+
+COPY ./containers.conf /etc/containers/containers.conf
+COPY ./podman-containers.conf /home/builder/.config/containers/containers.conf
+
+RUN set -exu \
+  && chmod 644 /etc/containers/containers.conf
 
 RUN set -exu \
   && mkdir -p /var/lib/shared/overlay-images /var/lib/shared/overlay-layers /var/lib/shared/vfs-images /var/lib/shared/vfs-layers \
