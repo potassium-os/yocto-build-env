@@ -86,7 +86,7 @@ RUN set -exu \
   && touch /var/lib/shared/overlay-images/images.lock \
   && touch /var/lib/shared/overlay-layers/layers.lock \
   && touch /var/lib/shared/vfs-images/images.lock \
-  && touch /var/lib/shared/vfs-layers/layers.lock
+  && touch /var/lib/shared/vfs-layers/layers.lock \
   && chmod 4755 /usr/bin/newgidmap \
   && chmod 4755 /usr/bin/newuidmap
 
