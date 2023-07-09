@@ -56,7 +56,10 @@ RUN set -exu \
     u-boot-tools \
     libncurses-dev \
     libssl-dev \
-    libelf-dev
+    libelf-dev \
+    podman \
+    buildah \
+    skopeo
 
 
 # setup builder user
